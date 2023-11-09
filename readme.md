@@ -44,11 +44,11 @@ function printNote(id) {
 }
 
 if (action === "read") {
-  const id = Number(process.argv[3]);
+  const id = process.argv[3];
   if (id === undefined) {
     printAllNotes();
   } else {
-    printNote(id);
+    printNote(Number(id));
   }
 } else if (action === "create") {
   const title = process.argv[3];
@@ -126,17 +126,18 @@ const printNote = (id) => {
 };
 
 switch (action) {
-  case "read":
-    const id = Number(process.argv[3]);
+  case "read": {
+    const id = process.argv[3];
     if (id === undefined) {
       printAllNotes();
     } else {
-      printNote(id);
+      printNote(Number(id));
     }
 
     break;
+  }
 
-  case "create":
+  case "create": {
     const title = process.argv[3];
     const text = process.argv[4];
     const newNote = { title, text };
@@ -150,8 +151,9 @@ switch (action) {
     });
 
     break;
+  }
 
-  case "delete":
+  case "delete": {
     const id = Number(process.argv[3]);
     fs.readFile("./data.json", "utf8", (err, data) => {
       const notes = JSON.parse(data);
@@ -163,8 +165,9 @@ switch (action) {
     });
 
     break;
+  }
 
-  case "update":
+  case "update": {
     const id = Number(process.argv[3]);
     const title = process.argv[4];
     const text = process.argv[5];
@@ -182,6 +185,7 @@ switch (action) {
     });
 
     break;
+  }
 
   default:
     console.log('Valid actions are "create", "read", "update", and "delete".');
