@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Node's FS Module",
+    "text": "Node's FS Module has methods to deal with the filesystem. The first methods we used were `readFile` and `writeFile`. See the notes on those."
+  },
+
+  {
+    "title": "fs.readFile",
+    "text": "`fs.readFile` is a Node FS method for reading a local file. It takes 3 arguments: the path to the file to open (a string), the character encoding (a string, usually \"utf-8\"), and a callback function. The callback receives 2 arguments: an error object if there's an error, and the data (a string), which is the contents of the file."
+  },
+
+  {
+    "title": "fs.writeFile",
+    "text": "`fs.writeFile` is a Node FS method for writing a local file. It takes 4 arguments: the path to the file to open (a string), the data (a string) that you want to replace the contents of the file with, the character encoding (a string, usually \"utf-8\"), and a callback function. The callback receives 1 argument: an error object if there's an error."
+  }
+]
