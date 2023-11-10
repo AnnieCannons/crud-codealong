@@ -3,6 +3,7 @@
 ### Learning Objectives
 
 - Students should get exposure to `fs` methods,  such as `readFile`and `writeFile`.
+- Students should get exposure to JSON parsing and stringifying.
 - Students should achieve a basic understanding of CRUD operations
 
 ### Introduction
