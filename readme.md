@@ -2,19 +2,40 @@
 
 ### Learning Objectives
 
-Students should have exposure to:
+- Students should get exposure to `fs` methods,  such as `readFile`and `writeFile`.
+- Students should achieve a basic understanding of CRUD operations
 
-- `fs` methods,  such as `readFile`and `writeFile`.
+### Introduction
 
-Students should have basic understanding of:
+This codealong is for a Node CLI note-taking app that will use CRUD operations to manipulate the notes in a JSON file. The `data.json` file already exists.
 
-- CRUD operations
+**You'll** create a file to execute with Node. The following API usage examples assume a file called `index.js`, but you can name the file whatever you'd like.
+
+The solution adheres to the following API (_not_ a REST API):
+
+- Read all notes  with `node index.js read`.
+- Read one note with `node index.js read [i]`, where `i` is the index of the note to be read. This is a pure index in the array—there **is no `id` field** in the note objects.
+    - Example: `node index.js read 2`
+- Create a note with `node index.js create [note title] [note content]`, where both dynamic fields must be contained in quotes—Node splits arguments on words if quotes don't separate them.
+  - Example: `node index.js create "Persistence" "Persistence is the ability to store data past the lifetime of an application's run."`
+- Update a note with `node index.js update [i] [note title] [note content]`. Note that any update needs to include both a title and the content, since overwriting the whole object is a simpler API.
+- Delete a note with `node index.js delete [i]`.
 
 ### About This Codealong
 
+#### Repo Usage
+
 This codealong should likely be coded by the instructor with help from the group.
 
-Right now, we have solution code for you to work up to, as well as 
+Right now, we have:
+
+- Solution code to work towards.
+- The data to work with in `data.json`.
+- A backup of that data in `backup-data.json`, in case you accidentally overwrite the data. (If you do, be _sure_ to copy over to `data.json`, so that you retain a backup for when you accidentally overwrite it a second time.)
+
+#### Solution API
+
+The goal of this codealong is to get 
 
 ### Solutions
 
@@ -269,25 +290,25 @@ switch (action) {
     } else {
       printNote(Number(id));
     }
+  }
 
     break;
-  }
 
   case "create": {
     const title = process.argv[3];
     const text = process.argv[4];
     const newNote = { title, text };
     saveNote(newNote);
+  }
 
     break;
-  }
 
   case "delete": {
     const id = Number(process.argv[3]);
     deleteNote(id);
+  }
 
     break;
-  }
 
   case "update": {
     const id = Number(process.argv[3]);
@@ -295,9 +316,9 @@ switch (action) {
     const text = process.argv[5];
     const replacingNote = { title, text };
     updateNote(id, replacingNote);
+  }
 
     break;
-  }
 
   default:
     console.log('Valid actions are "create", "read", "update", and "delete".');
